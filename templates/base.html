@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>IonCamp</title>
+  {% load static %}
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -91,7 +92,7 @@
   <!-- header -->
     <div class="header">
       <div class="brand">
-        <a href="/"><img src="/static/logo.svg"></a>
+        <a href="/"><img src="{% static 'logo.svg' %}"></a>
       </div>
       <a class="item" href="/schedule">課程與師資</a>
       <a class="item" href="#">報名/繳費方式</a>
