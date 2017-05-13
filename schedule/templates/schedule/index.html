@@ -1,0 +1,249 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <style type="text/css">
+        .bg {
+            position: relative;
+            top: 60px;
+            width: 100%;
+            background-color: rgba(1, 1, 1, .1);
+            padding: 30px 0px; 
+        }
+        .schedule-main {
+            width: 90%;
+            padding: 20px 20px;
+            position: relative;
+            margin-right: auto;
+            margin-left: auto;
+            background-color: #fff;
+        }
+        .title-bg {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #4F71AD, #18A0B4);
+            margin-bottom: 30px;
+        }
+        .title-main {
+            width: 200px;
+            height: 45px;
+            background-color: #fff;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 35px;
+            color: rgba(1,1,1,.5);
+            font-size: 25px;
+        }
+        .fc-row {
+            display: flex;
+        }
+        .fc-box {
+            width: 15%;
+            line-height: 60px;
+            margin: 10px 10px; 
+            text-align: center;
+            background-color: #fff;
+            transition: all 0.3s ease;
+        }
+        .border {
+            border: 1px solid rgba(1,1,1,.3);
+        }
+        .shadow {
+            cursor: pointer;
+            box-shadow: 3px 3px 1px rgba(1,1,1,.3);
+        }
+        .shadow:hover {
+            transform: translateX(1px) translateY(1px);
+            box-shadow: none;
+        }
+        .mask {
+            -webkit-filter: blur(10px);
+            -moz-filter: blur(10px);
+            -o-filter: blur(10px);
+            -ms-filter: blur(10px);
+            filter: blur(10px);
+        }
+        .class-info {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            background-color: #fff;
+            border: 3px solid #4F71AD;
+            border-radius: 5px;
+            z-index: 999;
+        }
+        .class-title {
+            display: flex;
+            padding: 10px 20px;
+            font-size: 20px;
+            border-bottom: 1px solid rgba(1,1,1,.2);
+        }
+        .class-title-font {
+            width: 90%;
+        }
+        .class-title-icon {
+            width: 10%;
+            text-align: right;
+        }
+        .class-title-icon i {
+            cursor: pointer;
+        }
+        .class-content {
+            padding: 10px 20px;
+            line-height: 40px;
+        }
+        .teacher-main {
+            margin: 30px 0px;
+        }
+        .teacher-list {
+            width: 80%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .teacher-card {
+            display: flex;
+            padding: 20px 20px;
+            margin: 10px 0;
+            height: 250px;
+            border: 1px solid rgba(1,1,1,.3);
+            box-shadow: 1px 1px 2px rgba(1,1,1,.3);
+        }
+        .teacher-info {
+            margin-right: 30px;
+            width: 70%;
+            line-height: 30px;
+        }
+        .teacher-info .teacher-title {
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+        .teacher-img {
+            width: 30%;
+            text-align: right;
+        }
+        .teacher-img img {
+            height: 100%;
+        }
+    </style>
+    <div class="bg">
+        <div class="schedule-main">
+            <div class="title-bg">
+                <div class="title-main">課程表</div>
+            </div>
+            <div class="fc-table">
+                <div class="fc-row">
+                    <div class="fc-box"></div>
+                    <div class="fc-box">08/08(二)</div>
+                    <div class="fc-box">08/09(三)</div>
+                    <div class="fc-box">08/10(四)</div>
+                    <div class="fc-box">08/11(五)</div>
+                    <div class="fc-box">08/12(六)</div>
+                </div>
+                <div class="fc-row">
+                    <div class="fc-box">0900 - 1200</div>
+                    <div class="fc-box shadow border"></div>
+                    <div class="fc-box shadow border">數論</div>
+                    <div class="fc-box shadow border">貪心演算法</div>
+                    <div class="fc-box shadow border">字串</div>
+                    <div class="fc-box shadow border">FFT</div>
+                </div>
+                <div class="fc-row">
+                    <div class="fc-box">1200 - 1330</div>
+                    <div class="fc-box shadow border">報到 / 簡介時間</div>
+                    <div class="fc-box shadow border">午餐</div>
+                    <div class="fc-box shadow border">午餐</div>
+                    <div class="fc-box shadow border">午餐</div>
+                    <div class="fc-box shadow border">午餐</div>
+                </div>
+                <div class="fc-row">
+                    <div class="fc-box">1330 - 1730</div>
+                    <div id="dp" class="fc-box shadow border">DP</div>
+                    <div class="fc-box shadow border">基礎資結 / 進階資結</div>
+                    <div class="fc-box shadow border">基礎圖論 / 進階圖論</div>
+                    <div class="fc-box shadow border">網路流</div>
+                    <div class="fc-box shadow border">大挑戰</div>
+                </div>
+                <div class="fc-row">
+                    <div class="fc-box">1730 - 1900</div>
+                    <div class="fc-box shadow border">晚餐</div>
+                    <div class="fc-box shadow border">晚餐</div>
+                    <div class="fc-box shadow border">晚餐</div>
+                    <div class="fc-box shadow border">晚餐</div>
+                    <div class="fc-box shadow border">結業典禮</div>
+                </div>
+                <div class="fc-row">
+                    <div class="fc-box">1900 - 2200</div>
+                    <div class="fc-box shadow border">練習賽</div>
+                    <div class="fc-box shadow border">練習賽-ICPC</div>
+                    <div class="fc-box shadow border">練習賽-賽後judge</div>
+                    <div class="fc-box shadow border">練習賽-IOI</div>
+                    <div class="fc-box shadow border">賦歸</div>
+                </div>
+            </div>
+
+
+            <div class="teacher-main">
+                <div class="title-bg">
+                    <div class="title-main">師資介紹</div>
+                </div>
+                <div class="teacher-list">
+                    <div class="teacher-card">
+                        <div class="teacher-info">
+                            <div class="teacher-title">黃兆源</div>
+                            <div class="teacher-ga">擅長：資料結構、演算法</div>
+                            <div class="teacher-exp">
+                                在資訊之芽培訓計畫擔任永遠的日月卦長 <br/>
+                                在新竹高中軟體研究社擔任教學 <br/>
+                                曾在國立新竹高級中學工作 <br/>
+                                之前在菲比尋腸102 擔任卦長 <br/>
+                                之前在白蓮教擔任日月卦長 <br/>
+                            </div>
+                        </div>
+                        <div class="teacher-img">
+                            <img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/12189103_699118313557708_1679870441038910752_n.jpg?oh=f1f8afb8f0c8fb0074a9fcfa930e0829&oe=59819DE1">
+                        </div>
+                    </div>
+                    <div class="teacher-card">
+                        <div class="teacher-info">
+                            <div class="teacher-title">李旺陽</div>
+                            <div class="teacher-ga">擅長：資料結構、演算法</div>
+                            <div class="teacher-exp">
+                                競技程式設計助教 <br/>
+                                資訊之芽講師 <br/>
+                            </div>
+                        </div>
+                        <div class="teacher-img">
+                            <img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/10984303_870023666353889_6137387822921814835_n.jpg?oh=5a647c705842f5eb1f47c7ffa81af58b&oe=59AF076D">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div id="dp-info" class="class-info">
+                <div class="class-title">
+                    <div class="class-title-font">Dynamic Programming ( DP )</div>
+                    <div class="class-title-icon"><i id="close" class="fa fa-times" aria-hidden="true"></i></div>
+                </div>
+                <div class="class-content">
+                    動態規劃（英語：Dynamic programming，簡稱DP）是一種在數學、管理科學、計算機科學、經濟學和生物信息學中使用的，通過把原問題分解為相對簡單的子問題的方式求解複雜問題的方法。動態規劃常常適用於有重疊子問題[1]和最優子結構性質的問題，動態規劃方法所耗時間往往遠少於樸素解法。動態規劃背後的基本思想非常簡單。大致上，若要解一個給定問題，我們需要解其不同部分（即子問題），再合併子問題的解以得出原問題的解。
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var id = '';
+        $('.fc-box').click(function() {
+            $('.schedule-main').addClass('mask');
+            $("#" + this.id + "-info").fadeIn();
+            id = this.id;
+        })
+        $('#close').click(function() {
+            $('.schedule-main').removeClass('mask');
+            $("#" + id + "-info").fadeOut();
+        })
+    </script>
+{% endblock %}
