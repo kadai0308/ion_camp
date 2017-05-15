@@ -39,7 +39,10 @@ def create(request):
     new_user = User.objects.create_user(email, email, password)
 
     sex = (request.POST.get('sex', '') == '男') and 'male' or 'female'
-    birthday = request.POST.get('birthday', '')
+    year = request.POST.get('year', '')
+    month = request.POST.get('month', '')
+    day = request.POST.get('day', '')
+    birthday = "{}/{}/{}".format(year, month, day)
     birthday = datetime.datetime.strptime(birthday, '%Y/%m/%d')
     taiwanId = request.POST.get('taiwanId', '')
     vegetarian = (request.POST.get('vegetarian', '') == '素') and True or False
