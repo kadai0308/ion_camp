@@ -14,9 +14,9 @@
             margin-left: auto;
             margin-right: auto;
             top: 50%;
+            padding: 10px 0;
             transform: translateY(-50%);
             width: 30%;
-            height: 60%;
             background-color: #FFFFFF;
             box-shadow: 5px 5px 5px rgba(1,1,1,0.1);
         }
@@ -79,21 +79,23 @@
             <div class="login-logo">
                 <img src="/static/logo.svg">
             </div>
-            <form method="POST" action="/login/login" class="login-form">
-                {% csrf_token %}
-                <div class="input-group">
-                    <input class="text" name="username" placeholder="帳號"></input>
-                </div>
-                <div class="input-group">
-                    <input class="text" type="password" name="password" placeholder="密碼"></input>
-                </div>
-                <div class="input-group">
-                    <input class="submit-btn" type="submit" value="登入"></input>
-                </div>
-                <div class="input-group">
-                    <a href="/signup" class="singup-btn">註冊 / 報名</a>
-                </div>
-            </form>
+            <div>
+                <form method="POST" action="/login/login" class="login-form">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <input class="text" name="username" placeholder="帳號"></input>
+                    </div>
+                    <div class="input-group">
+                        <input class="text" type="password" name="password" placeholder="密碼"></input>
+                    </div>
+                    <div class="input-group">
+                        <input class="submit-btn" type="submit" value="登入"></input>
+                    </div>
+                    <div class="input-group">
+                        <a href="/signup" class="singup-btn">註冊 / 報名</a>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
