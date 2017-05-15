@@ -18,6 +18,8 @@ from django.contrib import admin
 import index.views as index
 import user.views as user
 import schedule.views as schedule
+import faq.views as faq
+import management.views as management
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -29,6 +31,16 @@ urlpatterns += [
 
 urlpatterns += [
     url(r'^schedule$', schedule.index),
+]
+
+urlpatterns += [
+    url(r'^faq$', faq.index),
+]
+
+urlpatterns += [
+    url(r'^management$', management.index),
+    url(r'^management/pass/(?P<apply_id>[0-9]+)$', management.passApply),
+    url(r'^management/reject/(?P<apply_id>[0-9]+)$', management.rejectApply),
 ]
 
 urlpatterns += [

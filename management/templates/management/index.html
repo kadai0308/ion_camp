@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <style type="text/css">
+    .manage-bg {
+      position: relative;
+      top: 60px;
+      width: 100%;
+      background-color: rgba(1, 1, 1, .1);
+      padding: 30px 0px; 
+    }
+    .manage-main {
+        width: 90%;
+        padding: 20px 20px;
+        position: relative;
+        margin-right: auto;
+        margin-left: auto;
+        background-color: #fff;
+    }
+    .data-table {
+      width: 100%;
+    }
+    .data:hover {
+      background-color: rgba(1,1,1,.1);
+      cursor: pointer;
+    }
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    th {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(1,1,1,.1);
+    }
+    td {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(1,1,1,.1); 
+    }
+    .popup {
+      display: none;
+      width: 40%;
+      height: 50%;
+      padding: 30px 30px;
+      position: fixed;
+      overflow: auto;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      border: 1px solid rgba(1,1,1,.1);
+      background-color: #fff;
+    }
+    .close_icon {
+      position: fixed;
+      top: 10px;
+      right: 20px;
+      cursor: pointer;
+    }
+    .content div {
+      margin: 10px 0px;
+    }
+  </style>
+  <div class="manage-bg">
+    <div class="manage-main">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>姓名</th>
+            <th>Email</th>
+            <th>生日</th>
+            <th>學校</th>
+            <th>電話</th>
+            <th>審核狀態</th>
+          </tr>
+        </thead>
+        <tbody style="box-sizing: border-box;">
+          {% for data in application %}
+            <tr id="{{data.id}}" class="data">
+              <th>{{data.name}}</th>
+              <th>{{data.user.email}}</th> 
+              <th>{{data.birthday}}</th>
+              <th>學校</th>
+              <th>{{data.phone}}</th>
+              <th>
+                {% if data.state == 'WaitForCheck' %}
+                  待審核
+                {% elif data.state == 'pass' %}
+                  已通過
+                {% elif data.state == 'reject' %}
+                  已拒絕
+                {% endif %}
+              </th>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="popup-list">
+    {% for data in application %}
+      <div id="{{data.id}}-info" class="popup">
+        <div class="close_icon">
+          <i id="close" class="fa fa-times" aria-hidden="true"></i>
+        </div>
+        <div class="content">
+          <div>姓名： {{data.name}}</div>
+          <div>性別： {{data.sex}}</div>
+          <div>Email： {{data.name}}</div>
+          <div>生日： {{data.birthday}}</div>
+          <div>學校： {{data.school}}</div>
+          <div>電話： {{data.phone}}</div>
+          <div>監護人: {{data.guardian}}</div>
+          <div>緊急聯絡人/關係/電話: {{data.contactPerson}}</div>
+          <div>聯絡地址: {{data.address}}</div>
+          <div>身份證字號: {{data.taiwanId}}</div>
+          <div>
+            飲食習慣: 
+            {% if data.vegetarian %}
+              素
+            {% else %}
+              葷
+            {% endif %}
+          </div>
+          <div>OJ/帳號/解題數目:</div>
+          <p>{{data.ojAccount}}</p>
+          <div>自我介紹:</div>
+          <p>{{data.selfIntro}}</p>
+          <div>參加原因:</div>
+          <p>{{data.joinReason}}</p>
+        </div>
+        <div class="btn-group">
+          <a href="/management/pass/{{data.id}}">通過</a>
+          <a href="/management/reject/{{data.id}}">拒絕</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <script type="text/javascript">
+  var id = '';
+    $('tr.data').click(function() {
+      $('#'+this.id+'-info').fadeIn();
+      id = this.id;
+    })
+    $('i#close').click(function() {
+      $("#" + id + "-info").fadeOut();
+    })
+  </script>
+{% endblock %}

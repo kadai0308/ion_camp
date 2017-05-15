@@ -74,6 +74,7 @@
         .class-info {
             display: none;
             position: fixed;
+            width: 40%;
             top: 50%;
             left: 50%;
             transform: translateX(-50%) translateY(-50%);
@@ -120,7 +121,7 @@
         }
         .teacher-info {
             margin-right: 30px;
-            width: 70%;
+            width: 60%;
             line-height: 30px;
         }
         .teacher-info .teacher-title {
@@ -132,7 +133,7 @@
             text-align: right;
         }
         .teacher-img img {
-            height: 100%;
+            width: 100%;
         }
     </style>
     <div class="ban"></div>
@@ -152,43 +153,43 @@
                 </div>
                 <div class="fc-row">
                     <div class="fc-box">0900 - 1200</div>
-                    <div class="fc-box shadow border"></div>
-                    <div class="fc-box shadow border">數論</div>
-                    <div class="fc-box shadow border">貪心演算法</div>
-                    <div class="fc-box shadow border">字串</div>
-                    <div class="fc-box shadow border">FFT</div>
+                    <div class="fc-box"></div>
+                    <div id="math" class="fc-box shadow border">數論</div>
+                    <div id="greedy" class="fc-box shadow border">貪心演算法</div>
+                    <div id="string" class="fc-box shadow border">字串</div>
+                    <div id="fft" class="fc-box shadow border">FFT</div>
                 </div>
                 <div class="fc-row">
                     <div class="fc-box">1200 - 1330</div>
                     <div class="fc-box shadow border">報到 / 簡介時間</div>
-                    <div class="fc-box shadow border">午餐</div>
-                    <div class="fc-box shadow border">午餐</div>
-                    <div class="fc-box shadow border">午餐</div>
-                    <div class="fc-box shadow border">午餐</div>
+                    <div id="lunch" class="fc-box shadow border">午餐</div>
+                    <div id="lunch" class="fc-box shadow border">午餐</div>
+                    <div id="lunch" class="fc-box shadow border">午餐</div>
+                    <div id="lunch" class="fc-box shadow border">午餐</div>
                 </div>
                 <div class="fc-row">
                     <div class="fc-box">1330 - 1730</div>
                     <div id="dp" class="fc-box shadow border">DP</div>
-                    <div class="fc-box shadow border">基礎資結 / 進階資結</div>
-                    <div class="fc-box shadow border">基礎圖論 / 進階圖論</div>
-                    <div class="fc-box shadow border">網路流</div>
+                    <div id="ds" class="fc-box shadow border">基礎資結 / 進階資結</div>
+                    <div id="graph" class="fc-box shadow border">基礎圖論 / 進階圖論</div>
+                    <div id="internet" class="fc-box shadow border">網路流</div>
                     <div class="fc-box shadow border">大挑戰</div>
                 </div>
                 <div class="fc-row">
                     <div class="fc-box">1730 - 1900</div>
-                    <div class="fc-box shadow border">晚餐</div>
-                    <div class="fc-box shadow border">晚餐</div>
-                    <div class="fc-box shadow border">晚餐</div>
-                    <div class="fc-box shadow border">晚餐</div>
-                    <div class="fc-box shadow border">結業典禮</div>
+                    <div id="dinner" class="fc-box shadow border">晚餐</div>
+                    <div id="dinner" class="fc-box shadow border">晚餐</div>
+                    <div id="dinner" class="fc-box shadow border">晚餐</div>
+                    <div id="dinner" class="fc-box shadow border">晚餐</div>
+                    <div id="finish" class="fc-box shadow border">結業典禮</div>
                 </div>
                 <div class="fc-row">
                     <div class="fc-box">1900 - 2200</div>
-                    <div class="fc-box shadow border">練習賽</div>
-                    <div class="fc-box shadow border">練習賽-ICPC</div>
-                    <div class="fc-box shadow border">練習賽-賽後judge</div>
-                    <div class="fc-box shadow border">練習賽-IOI</div>
-                    <div class="fc-box shadow border">賦歸</div>
+                    <div id="practice" class="fc-box shadow border">練習賽</div>
+                    <div id="icpc" class="fc-box shadow border">練習賽-ICPC</div>
+                    <div id="jas" class="fc-box shadow border">練習賽-賽後judge</div>
+                    <div id="ioi" class="fc-box shadow border">練習賽-IOI</div>
+                    <div id="bye" class="fc-box shadow border">賦歸</div>
                 </div>
             </div>
 
@@ -237,20 +238,206 @@
                     <div class="class-title-icon"><i id="close" class="fa fa-times" aria-hidden="true"></i></div>
                 </div>
                 <div class="class-content">
-                    動態規劃（英語：Dynamic programming，簡稱DP）是一種在數學、管理科學、計算機科學、經濟學和生物信息學中使用的，通過把原問題分解為相對簡單的子問題的方式求解複雜問題的方法。動態規劃常常適用於有重疊子問題[1]和最優子結構性質的問題，動態規劃方法所耗時間往往遠少於樸素解法。動態規劃背後的基本思想非常簡單。大致上，若要解一個給定問題，我們需要解其不同部分（即子問題），再合併子問題的解以得出原問題的解。
+                    課程內容：  <br/>
+                    基本動態規劃 <br/>
+                    滾動陣列 <br/>
+                    單調對列優化 <br/>
+                    斜率優化 <br/>
+                    平行四邊形優化 <br/>
+                </div>
+            </div>
+            <div id="math-info" class="class-info">
+                <div class="class-title">
+                    <div class="class-title-font">數論</div>
+                    <div class="class-title-icon"><i id="close" class="fa fa-times" aria-hidden="true"></i></div>
+                </div>
+                <div class="class-content">
+                    課程內容：  <br/>
+                    各種數學技巧<br/>
+                    exGCD<br/>
+                    中國剩餘定理<br/>
+                    矩陣運算<br/>
+                </div>
+            </div>
+            <div id="ds-info" class="class-info">
+                <div class="class-title">
+                    <div class="class-title-font">資料結構</div>
+                    <div class="class-title-icon"><i id="close" class="fa fa-times" aria-hidden="true"></i></div>
+                </div>
+                <div class="class-content">
+                    課程內容：  <br/>
+                        stack<br/>
+                        queue<br/>
+                        DFS、BFS<br/>
+                        link list<br/>
+                        heap(priority queue)<br/>
+                        線段樹<br/>
+                        Treap(?)<br/>
+                        Treap<br/>
+                        持久化Treap<br/>
+                        持久化線段樹<br/>
+                        kd線段樹<br/>
+                        永久化標記<br/>
+                </div>
+            </div>
+            <div id="greedy-info" class="class-info">
+                <div class="class-title">
+                    <div class="class-title-font">貪心演算法</div>
+                    <div class="class-title-icon"><i id="close" class="fa fa-times" aria-hidden="true"></i></div>
+                </div>
+                <div class="class-content">
+                    課程內容：  <br/>
+                        Greedy<br/>
+                        矩陣胚定理(?)<br/>
+                </div>
+            </div>
+            <div id="graph-info" class="class-info">
+                <div class="class-title">
+                    <div class="class-title-font">圖論</div>
+                    <div class="class-title-icon"><i id="close" class="fa fa-times" aria-hidden="true"></i></div>
+                </div>
+                <div class="class-content">
+                    課程內容：  <br/>
+                        什麼是圖<br/>
+                        圖的儲存<br/>
+                        圖上DFS、BFS<br/>
+                        最小生成樹<br/>
+                        最短路徑<br/>
+                        平面圖的一些性質<br/>
+                        平面圖判定<br/>
+                        競賽圖的一些性質<br/>
+                        斯坦納樹<br/>
+                        dominator tree<br/>
+                        最小樹形圖<br/>
+                </div>
+            </div>
+            <div id="string-info" class="class-info">
+                <div class="class-title">
+                    <div class="class-title-font">字串</div>
+                    <div class="class-title-icon"><i id="close" class="fa fa-times" aria-hidden="true"></i></div>
+                </div>
+                <div class="class-content">
+                    課程內容：  <br/>
+                        Z algorithm<br/>
+                        KMP<br/>
+                        Suffix Array<br/>
+                        AC自動機<br/>
+                        後綴自動機<br/>
+                        迴文自動機<br/>
+                </div>
+            </div>
+            <div id="internet-info" class="class-info">
+                <div class="class-title">
+                    <div class="class-title-font">網路流</div>
+                    <div class="class-title-icon"><i id="close" class="fa fa-times" aria-hidden="true"></i></div>
+                </div>
+                <div class="class-content">
+                    課程內容：  <br/>
+                        Ford-Fulkerson<br/>
+                        Edmonds-Karp<br/>
+                        Dinic<br/>
+                        ISAP<br/>
+                        最小割定理<br/>
+                        網路流最小割建模技巧<br/>
+                        Push Relable(?)<br/>
+                </div>
+            </div>
+            <div id="fft-info" class="class-info">
+                <div class="class-title">
+                    <div class="class-title-font">FFT</div>
+                    <div class="class-title-icon"><i id="close" class="fa fa-times" aria-hidden="true"></i></div>
+                </div>
+                <div class="class-content">
+                    課程內容：  <br/>
+                        快速傅立葉變換(FFT)<br/>
+                        快速數論變換(NTT)<br/>
+                        FWT<br/>
+                        應用<br/>
+                </div>
+            </div>
+            <div id="lunch-info" class="class-info">
+                <div class="class-title">
+                    <div class="class-title-font">午餐</div>
+                    <div class="class-title-icon"><i id="close" class="fa fa-times" aria-hidden="true"></i></div>
+                </div>
+                <div class="class-content">
+                    好吃的午餐
+                </div>
+            </div>
+            <div id="dinner-info" class="class-info">
+                <div class="class-title">
+                    <div class="class-title-font">晚餐</div>
+                    <div class="class-title-icon"><i id="close" class="fa fa-times" aria-hidden="true"></i></div>
+                </div>
+                <div class="class-content">
+                    好吃的晚餐
+                </div>
+            </div>
+            <div id="practice-info" class="class-info">
+                <div class="class-title">
+                    <div class="class-title-font">練習賽</div>
+                    <div class="class-title-icon"><i id="close" class="fa fa-times" aria-hidden="true"></i></div>
+                </div>
+                <div class="class-content">
+                    模擬真正比賽的方式進行練習
+                </div>
+            </div>
+            <div id="icpc-info" class="class-info">
+                <div class="class-title">
+                    <div class="class-title-font">練習賽-ICPC</div>
+                    <div class="class-title-icon"><i id="close" class="fa fa-times" aria-hidden="true"></i></div>
+                </div>
+                <div class="class-content">
+                    模擬ICPC的方式進行練習
+                </div>
+            </div>
+            <div id="jas-info" class="class-info">
+                <div class="class-title">
+                    <div class="class-title-font">練習賽-賽後judge</div>
+                    <div class="class-title-icon"><i id="close" class="fa fa-times" aria-hidden="true"></i></div>
+                </div>
+                <div class="class-content">
+                    模擬賽後judge的方式進行練習
+                </div>
+            </div>
+            <div id="ioi-info" class="class-info">
+                <div class="class-title">
+                    <div class="class-title-font">練習賽-IOI</div>
+                    <div class="class-title-icon"><i id="close" class="fa fa-times" aria-hidden="true"></i></div>
+                </div>
+                <div class="class-content">
+                    模擬IOI的方式進行練習
+                </div>
+            </div>
+            <div id="bye-info" class="class-info">
+                <div class="class-title">
+                    <div class="class-title-font">賦歸</div>
+                    <div class="class-title-icon"><i id="close" class="fa fa-times" aria-hidden="true"></i></div>
+                </div>
+                <div class="class-content">
+                    byebye~~
+                </div>
+            </div>
+            <div id="finish-info" class="class-info">
+                <div class="class-title">
+                    <div class="class-title-font">結業典禮</div>
+                    <div class="class-title-icon"><i id="close" class="fa fa-times" aria-hidden="true"></i></div>
+                </div>
+                <div class="class-content">
+                    結業典禮
                 </div>
             </div>
         </div>
     </div>
     <script type="text/javascript">
         var id = '';
-        $('.fc-box').click(function() {
+        $('.shadow').click(function() {
             $('.ban').show();
             $('.schedule-main').addClass('mask');
             $("#" + this.id + "-info").fadeIn();
             id = this.id;
         })
-        $('#close').click(function() {
+        $('i#close').click(function() {
             $('.ban').hide();
             $('.schedule-main').removeClass('mask');
             $("#" + id + "-info").fadeOut();

@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'index',
     'user',
     'schedule',
+    'faq',
+    'management',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +63,8 @@ TEMPLATES = [
             './index/templates',
             './user/templates',
             './schedule/templates',
+            './faq/templates',
+            './management/templates',
             './templates',
         ],
         'APP_DIRS': True,

@@ -6,6 +6,7 @@ class Profile (models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     sex = models.CharField(max_length=255)
+    school = models.CharField(max_length=255)
     birthday = models.DateTimeField()
     taiwanId = models.CharField(max_length=255)
     vegetarian = models.BooleanField(default=False)
@@ -16,3 +17,4 @@ class Profile (models.Model):
     ojAccount = models.TextField()
     selfIntro = models.TextField()
     joinReason = models.TextField()
+    state = models.CharField(max_length=255, default='WaitForCheck')

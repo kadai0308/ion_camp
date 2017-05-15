@@ -96,7 +96,7 @@
       </div>
       <a class="item" href="/schedule">課程與師資</a>
       <a class="item" href="#">報名/繳費方式</a>
-      <a class="item" href="#">常見問答 FAQ</a>
+      <a class="item" href="/faq">注意事項</a>
       {% if user.is_authenticated %}
         <input class="fkClick" />
         <a id="user" class="item" href="#">{{ user.username }}</a>
@@ -104,6 +104,9 @@
           <div class="dropDown-main">
             <a href="#"><div class="dropDown-item">個人資料</div></a>
             <a href="/logout"><div class="dropDown-item">登出</div></a>
+            {% if user.is_superuser %}
+              <a href="/management"><div class="dropDown-item">管理系統</div></a>
+            {% endif %}
           </div>
         </div>
       {% else %}
