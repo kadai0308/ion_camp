@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <style type="text/css">
+        .faq-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(1,1,1,.1);
+            padding: 30px 0;
+        }
+        .faq-main {
+            position: relative;
+            width: 60%;
+            margin-right: auto;
+            margin-left: auto;
+            top: 60px;
+            background-color: #fff;
+            padding: 20px 20px;
+        }
+        .title-bg {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #4F71AD, #18A0B4);
+            margin-bottom: 30px;
+        }
+        .title-main {
+            width: 200px;
+            height: 45px;
+            background-color: #fff;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 35px;
+            color: rgba(1,1,1,.5);
+            font-size: 25px;
+        }
+        .block {
+            margin: 30px 0px;
+        }
+        .question {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .decorate-line {
+            width: 50px;
+            margin-top: 30px;
+            border-bottom: 1px solid rgba(1,1,1,.3);
+        }
+    </style>
+    <div class="faq-bg">
+        <div class="faq-main">
+            <div class="title-bg">
+                <div class="title-main">報名方式</div>
+            </div>
+            <div class="title-bg">
+                <div class="title-main">繳費方式</div>
+            </div>
+            <div class="block">
+                <div class="question">Q: 有提供住宿嗎?</div>
+                <div class="answer">
+                    A: 我們提供住宿於學校宿舍，費用包含於報名費中，若不需住宿者請於報名表單登記後，於報到當日退費
+                </div>
+                <div class="decorate-line"></div>
+            </div>
+            <div class="block">
+                <div class="question">Q: 有提供素食嗎?</div>
+                <div class="answer">
+                    A: 有，需要特殊飲食者請於表單附記
+                </div>
+                <div class="decorate-line"></div>
+            </div>
+            <div class="block">
+                <div class="question">Q: 我不會C/C++可以報名嗎?</div>
+                <div class="answer">
+                    A: 我們的課程需要C/C++的基礎認識，所以需要您在報名表單中提供您的學習經驗來做為錄取的參考依據
+                </div>
+                <div class="decorate-line"></div>
+            </div>
+            <div class="block">
+                <div class="question">Q: 要如何抵達清華大學?</div>
+                <div class="answer">
+                    A: 我們之後會統計並派員到新竹火車站、新竹高鐵站，以及客運清大站接駁
+                </div>
+                <div class="decorate-line"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

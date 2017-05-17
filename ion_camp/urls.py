@@ -35,6 +35,7 @@ urlpatterns += [
 
 urlpatterns += [
     url(r'^faq$', faq.index),
+    url(r'^notice$', faq.notice),
 ]
 
 urlpatterns += [
