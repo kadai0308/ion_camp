@@ -85,16 +85,8 @@ WSGI_APPLICATION = 'ion_camp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ion_camp',
-        'USER': 'ion_camp_admin',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
 
 
 # Password validation
@@ -135,3 +127,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# local settings
+try:
+    from .local_settings import *
+except ImportError:
+    pass
