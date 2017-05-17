@@ -86,6 +86,7 @@ WSGI_APPLICATION = 'ion_camp.wsgi.application'
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 import dj_database_url
+DATABASES = {}
 DATABASES['default'] =  dj_database_url.config()
 
 
