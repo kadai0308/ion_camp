@@ -18,3 +18,5 @@ class Profile (models.Model):
     selfIntro = models.TextField()
     joinReason = models.TextField()
     state = models.CharField(max_length=255, default='WaitForCheck')
+    howToArrival = models.CharField(max_length=255)
+    needStay = models.CharField(max_length=255)

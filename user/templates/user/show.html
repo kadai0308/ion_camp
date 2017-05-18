@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <style type="text/css">
+    .show-bg {
+      position: relative;
+      width: 100%;
+      background-color: rgba(1, 1, 1, .1);
+      padding: 40px 0;
+    }
+    .show-main {
+      position: relative;
+      width: 80%;
+      margin-top: 60px;
+      margin-right: auto;
+      margin-left: auto;
+      background-color: #fff;
+      padding: 20px 20px;
+    }
+    .title-bg {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(45deg, #4F71AD, #18A0B4);
+        margin-bottom: 30px;
+    }
+    .title-main {
+        width: 200px;
+        height: 45px;
+        background-color: #fff;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 35px;
+        color: rgba(1,1,1,.5);
+        font-size: 25px;
+    }
+    .text {
+      margin: 10px 0;
+    }
+    .btn-group {
+      margin: 30px 0;
+    }
+    a {
+      text-decoration: none;
+      color: rgba(1,1,1,.5);
+    }
+    .btn {
+      padding: 10px 20px;
+      border: 1px solid #4F71AD;
+      text-align: center;
+      width: 10%;
+      transition: all .5s ease;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #4F71AD;
+      color: #fff;
+    }
+  </style>
+  <div class="show-bg">
+    <div class="show-main">
+      <div class="title-bg">
+        <div class="title-main">個人資料</div>
+      </div>
+      <div class="text">姓名：{{applicaton.name}}</div>
+      <div class="text">Email：{{applicaton.user.email}}</div>
+      <div class="text">性別：{{applicaton.sex}}</div>
+      <div class="text">生日：{{applicaton.birthday}}</div>
+      <div class="text">身分證字號：{{applicaton.taiwanId}}</div>
+      <div class="text">連絡人：{{applicaton.contactPerson}}</div>
+      <div class="text">監護人：{{applicaton.guardian}}</div>
+      <div class="text">地址：{{applicaton.address}}</div>
+      <div class="text">電話：{{applicaton.phone}}</div>
+      <div class="text">OJ 帳號：</div>
+      <div class="text">{{applicaton.ojAccount}}</div>
+      <div class="text">自我介紹：</div>
+      <div class="text">{{applicaton.selfIntro}}</div>
+      <div class="text">參加原因：</div>
+      <div class="text">{{applicaton.joinReason}}</div>
+      <div class="btn-group">
+        <a href="/user/edit/{{applicaton.user.id}}"><span class="btn">修改資料</span></a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

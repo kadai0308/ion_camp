@@ -102,7 +102,7 @@
         <a id="user" class="item" href="#">{{ user.username }}</a>
         <div class="dropDown">
           <div class="dropDown-main">
-            <a href="#"><div class="dropDown-item">個人資料</div></a>
+            <a href="/user/show/{{request.user.id}}"><div class="dropDown-item">個人資料</div></a>
             <a href="/logout"><div class="dropDown-item">登出</div></a>
             {% if user.is_superuser %}
               <a href="/management"><div class="dropDown-item">管理系統</div></a>

@@ -50,4 +50,7 @@ urlpatterns += [
     url(r'^login/login$', user.loginAuth),
     url(r'^signup$', user.signup),
     url(r'^signup/create$', user.create),
+    url(r'^user/show/(?P<user_id>[0-9]+)$', user.show),
+    url(r'^user/edit/(?P<user_id>[0-9]+)$', user.edit),
+    url(r'^user/update/(?P<user_id>[0-9]+)$', user.update),
 ]

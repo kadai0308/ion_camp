@@ -97,64 +97,42 @@
     <div class="signup-bg">
         <div class="signup-main">
             <div class="title-bg">
-                <div class="title-main">報名須知</div>
+                <div class="title-main">修改報名資料</div>
             </div>
-            <div class="notice">
-                <div>．報名期限：即日起至2017/07/20止</div>
-                <div>．營期：2017/08/08(二)~2017/08/12(六)</div>
-                <div>．招生對象：程式解題競賽有興趣的國、高中同學</div>
-                <div>．招收人數：70人</div>
-                <div>．費用：5000/人</div>
-                <div>．先到先審 錄取之後會以 email 和電話通知</div>
-                <div>．確定錄取之後再進行繳費的動作</div>
-            </div>
-            <div class="title-bg">
-                <div class="title-main">填寫報名資料</div>
-            </div>
-            <form method="POST" id="signup" action="/signup/create">
+            <form method="POST" id="update" action="/user/update/{{applicaton.user.id}}">
                 {% csrf_token %}
                 <div class="form-group">
                     <div class="i3over1">
-                        <div class="label">Email ( 作為帳號使用 )</div>
-                        <input name="email" type="text"  required/>
-                    </div>
-                    <div class="i3over1">
-                        <div class="label">密碼</div>
-                        <input name="password" type="password"  required/>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="i3over1">
                         <div class="label">姓名</div>
-                        <input name="name" type="text"  required/>
+                        <input name="name" type="text" value="{{applicaton.name}}" required/>
                     </div>
                     <div class="i3over1">
                         <div class="label">電話</div>
-                        <input name="phone" type="text"  required/>
+                        <input name="phone" type="text" value="{{applicaton.phone}}"  required/>
                     </div>
                     <div class="i3over1">
                         <div class="label">性別</div>
-                        <input name="sex" type="text" placeholder="男/女"  required/>
+                        <input name="sex" type="text" placeholder="男/女" value="{{applicaton.sex}}" required/>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="i3over1">
                         <div class="label">監護人</div>
-                        <input name="guardian" type="text"  required/>
+                        <input name="guardian" type="text" value="{{applicaton.guardian}}" required/>
                     </div>
                     <div class="i3over1">
                         <div class="label">緊急聯絡人/關係/電話</div>
-                        <input name="contactPerson" type="text"  required/>
+                        <input name="contactPerson" type="text" value="{{applicaton.contactPerson}}"  required/>
                     </div>
                     <div class="i3over1">
                         <div class="label">緊急聯絡地址</div>
-                        <input name="address" type="text"  required/>
+                        <input name="address" type="text" value="{{applicaton.address}}" required/>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="i3over1">
                         <div class="label">生日</div>
-                        <select form="signup" name="year">
+                        <select form="update" name="year">
                             <option value="1990">1990</option>
                             <option value="1991">1991</option>
                             <option value="1992">1992</option>
@@ -180,7 +158,7 @@
                             <option value="2012">2012</option>
                             <option value="2013">2013</option>
                         </select>
-                        <select form="signup" name="month">
+                        <select form="update" name="month">
                             <option value="01">01</option>
                             <option value="02">02</option>
                             <option value="03">03</option>
@@ -194,7 +172,7 @@
                             <option value="11">11</option>
                             <option value="11">12</option>
                         </select>
-                        <select form="signup" name="day">
+                        <select form="update" name="day">
                             <option value="01">01</option>
                             <option value="02">02</option>
                             <option value="03">03</option>
@@ -230,39 +208,43 @@
                     </div>
                     <div class="i3over1">
                         <div class="label">身份證字號</div>
-                        <input name="taiwanId" type="text"  required/>
+                        <input name="taiwanId" type="text" value="{{applicaton.taiwanId}}" required/>
                     </div>
                     <div class="i3over1">
                         <div class="label">飲食習慣（葷 / 素）</div>
-                        <input name="vegetarian" type="text"  required/>
+                        <input name="vegetarian" type="text" value="{{applicaton.vegetarian}}" required/>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="i3over1">
                         <div class="label">交通方式</div>
-                        <input name="howToArrival" type="text" placeholder="（台鐵/高鐵/公車/自行前往）" required/>
+                        <input name="howToArrival" type="text" value="{{applicaton.howToArrival}}" placeholder="（台鐵/高鐵/公車/自行前往）"  required/>
                     </div>
                     <div class="i3over1">
                         <div class="label">是否需要住宿</div>
-                        <input name="needStay" type="text" placeholder="是/否" required/>
+                        <input name="needStay" type="text" value="{{applicaton.needStay}}" placeholder="是/否" required/>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="iall">
                         <div class="label">OJ/帳號/解題數目</div>
-                        <textarea name="ojAccount" placeholder="ex: zerojudge / jacky860226 / 7122"></textarea>
+                        <textarea name="ojAccount" placeholder="ex: zerojudge / jacky860226 / 7122">{{applicaton.ojAccount}}</textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="iall">
                         <div class="label">自我介紹</div>
-                        <textarea name="selfIntro"></textarea>
+                        <textarea name="selfIntro">
+                            {{applicaton.selfIntro}}
+                        </textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="iall">
                         <div class="label">為什麼想來參加</div>
-                        <textarea name="joinReason"></textarea>
+                        <textarea name="joinReason">
+                            {{applicaton.joinReason}}
+                        </textarea>
                     </div>
                 </div>
                 <div class="form-group floatLeft">
